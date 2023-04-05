@@ -1,0 +1,17 @@
+.header {
+    @apply grid gap-5 items-center mb-2 grid-cols-[repeat(3,max-content)];
+}
+@media (max-width:1000px) {
+    .header {
+        @apply w-full grid-cols-[1fr,max-content,max-content];
+    }
+}
+@media (max-width:640px) {
+    .header {
+        button {
+            @apply hidden w-full ;
+        }
+    }
+
+
+}

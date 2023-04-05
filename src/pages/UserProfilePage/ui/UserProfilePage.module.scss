@@ -1,0 +1,10 @@
+.container {
+    @apply grid justify-center px-10 py-24 h-full w-full box-border gap-7;
+
+
+}
+@media screen and (max-width:1024px) {
+    .container{
+        @apply grid-cols-1;
+    }
+}

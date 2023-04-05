@@ -1,0 +1,58 @@
+.leftSide {
+    @apply grid h-full py-24 pl-32 pr-28 box-border justify-items-center;
+
+
+    article {
+        @apply h-full grid content-stretch;
+
+        .title {
+            @apply text-5xl font-medium leading-snug mb-3;
+
+        }
+
+        .textBody {
+            @apply text-lg text-justify;
+        }
+
+        button {
+            @apply w-full h-24 text-3xl self-end my-5;
+        }
+
+        .warning {
+            @apply text-mainColor text-center;
+        }
+    }
+
+}
+
+@media (max-width:1440px) {
+    .leftSide {
+        @apply px-10;
+    }
+}
+
+@media (max-width:1000px) {
+    article {
+        @apply px-10;
+
+        .title {
+            @apply text-center;
+        }
+
+        button {
+            @apply justify-self-center max-w-[50%];
+        }
+    }
+
+}
+
+@media (max-width:640px) {
+    article {
+        @apply p-1;
+
+        button {
+            @apply max-w-full
+        }
+    }
+
+}

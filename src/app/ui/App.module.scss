@@ -1,0 +1,18 @@
+
+.app {
+    @apply h-full font-mainFont;
+
+    p {
+        @apply m-0;
+    }
+
+    h1 {
+        @apply m-0;
+    }
+
+    .containerHomePage {
+        @apply grid h-full grid-cols-1.5/2.5 grid-rows-1;
+
+    }
+
+}

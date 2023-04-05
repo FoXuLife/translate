@@ -1,0 +1,18 @@
+.item {
+    @apply list-none;
+
+    a {
+        @apply no-underline text-black text-lg text-left py-3 px-5 box-border flex items-center;
+
+        svg {
+            @apply mr-5 text-xl;
+        }
+
+    }
+
+    .active {
+        @apply rounded-3xl bg-black text-white w-full transition-all;
+
+    }
+
+}

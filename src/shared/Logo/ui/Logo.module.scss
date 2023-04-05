@@ -1,0 +1,7 @@
+.logo {
+    @apply flex items-center gap-2 text-mainColor;
+    svg {
+        @apply w-14 text-mainColor;
+    }
+    
+}

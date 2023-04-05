@@ -1,0 +1,97 @@
+table {
+    @apply text-black;
+    @apply w-full;
+
+    th,
+    td {
+        @apply p-3 text-center;
+    }
+
+    tr {
+        @apply  text-center ;
+        >:first-child {
+            float: left
+        }
+
+        .success {
+            @apply text-green-700 px-2 py-1
+        }
+
+        .inProgress {
+            @apply text-blue-700 px-2 py-1
+        }
+        .catch {
+            @apply relative flex text-red-700 px-2 py-1 justify-center;
+            svg{
+                @apply text-xl ml-1 hover:text-red-600 ;
+            }
+            .tooltip{
+                @apply absolute z-50 whitespace-normal bottom-8 max-w-[320px] w-max break-words rounded-lg bg-white py-1.5 px-3 font-sans text-sm font-normal text-red-700 shadow-itemsShadow focus:outline-none
+            }
+            .hiddens{
+                @apply hidden;
+            }
+        }
+        >:last-child {
+            float: right
+        }
+    }
+
+    th {
+        @apply uppercase text-sm;
+        letter-spacing: 1px;
+    }
+
+    svg {
+        @apply text-3xl;
+    }
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    table {
+        border: 0;
+
+
+        thead {
+            display: none;
+        }
+
+        tr {
+            margin-bottom: 10px;
+            display: block;
+            border-top: 2px solid #ddd;
+
+            >:first-child {
+                float: none !important
+            }
+
+            >:last-child {
+                float: none !important
+            }
+
+        }
+
+        td {
+            display: block;
+            font-size: 13px;
+            border-bottom: 1px dotted #ccc;
+            border-right: 1px solid transparent;
+        }
+
+        td:last-child {
+            border-bottom: 0;
+        }
+
+        td:before {
+            content: attr(data-label);
+            float: left;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+
+
+}

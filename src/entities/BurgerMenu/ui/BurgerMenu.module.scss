@@ -1,0 +1,118 @@
+// Зарефакторить анимацию, желательно придумаь фукция с меняемыми значениями.
+
+.hamburger {
+    @apply top-0 right-0 space-y-2;
+
+    .hamburgerItem {
+        @apply block h-0.5 w-8 bg-gray-600
+    }
+}
+.hamburgerMenu {
+    @apply fixed w-full h-screen top-0 left-0 bg-white flex z-10 justify-center items-center;
+    animation: opac 1s;
+
+    @keyframes opac {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 100;
+        }
+
+    }
+    .hamburger {
+        @apply absolute pt-[115px] pr-[60px] ;
+    }
+    nav {
+        @apply grid space-y-20 justify-items-center;
+
+        a {
+            @apply text-4xl text-black no-underline;
+        }
+    }
+}
+.closed{
+    >:first-child {
+        animation: closeFirstElem 1s;
+    }
+
+    >:last-child {
+        animation: closeTreeElem 1s;
+    }
+
+    >:nth-child(2) {
+        animation: closeSecondElem 1s;
+    }
+
+    @keyframes closeFirstElem {
+        0% {
+            transform: translate(0px, 15px) rotate(45deg);
+
+        }
+
+        100% {
+            transform: translate(0px, 0px) rotate(0deg);
+        }
+
+    }
+
+    @keyframes closeTreeElem {
+
+        0% {
+            transform: translate(0px, -5px) rotate(-45deg);
+
+        }
+
+        100% {
+            transform: translate(0px, 0px) rotate(0deg);
+        }
+    }
+
+    @keyframes closeSecondElem {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 100;
+        }
+    }
+}
+
+.opened{
+    >:first-child {
+        transform: translate(0px, 5px) rotate(45deg);
+        animation: click 1s;
+    }
+
+    >:last-child {
+        transform: translate(0px, -5px) rotate(-45deg);
+        animation: click2 1s;
+    }
+
+    @keyframes click {
+        0% {
+            transform: translate(0px, 0px) rotate(0deg);
+
+
+        }
+
+        100% {
+            transform: translate(0px, 5px) rotate(45deg);
+        }
+
+    }
+
+    @keyframes click2 {
+
+        0% {
+            transform: translate(0px, 0px) rotate(0deg);
+
+        }
+
+        100% {
+            transform: translate(0px, -5px) rotate(-45deg);
+        }
+    }
+}

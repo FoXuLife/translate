@@ -1,0 +1,18 @@
+.buttons {
+    @apply border-none bg-transparent text-base  text-mainColor rounded-2xl py-3 px-10 cursor-pointer font-mainFont w-max h-max ;
+}
+
+.withBorder {
+    @apply border border-mainColor border-solid;
+}
+
+.withBackground { 
+    @apply bg-mainColor text-white ;
+}
+.withBorderWhite{
+    @apply border-2 border-white border-solid text-white;
+}
+
+.disable{
+ @apply opacity-40;
+}
