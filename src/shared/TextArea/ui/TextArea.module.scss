@@ -1,0 +1,17 @@
+.inputContainer {
+    @apply relative flex items-center h-full justify-center;
+
+    .textArea {
+        @apply text-black bg-gray-50 resize-none inputStyle w-full h-full focus:outline-none focus:border-blue-500 text-lg;
+
+        
+    }
+    :disabled{
+       @apply bg-black opacity-50 z-20 ;
+       
+    }
+    label {
+        @apply absolute m-0 left-0 right-0 align-middle;
+    }
+   
+}

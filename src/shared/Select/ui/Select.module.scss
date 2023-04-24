@@ -1,0 +1,38 @@
+.select {
+    @apply relative;
+
+    .content {
+        @apply bg-gray-50 p-4 rounded-md
+    }
+
+    .openned {
+        @apply border-2 border-blue-500
+    }
+
+    .closed {
+        @apply border-2 border-gray-400
+    }
+
+    .selectBody {
+        @apply flex justify-between items-center gap-3;
+
+        .label {
+            @apply text-gray-800;
+        }
+
+        .openClose {
+            @apply w-4 h-4 ml-2 text-gray-600
+        }
+
+
+    }
+
+    .optionsBody {
+        @apply absolute mt-2 w-full bg-gray-200 shadow-lg rounded-md z-10;
+
+        .option {
+            @apply px-4 py-4 cursor-pointer hover:bg-white;
+           
+        }
+    }
+}

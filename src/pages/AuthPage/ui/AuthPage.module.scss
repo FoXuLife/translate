@@ -1,0 +1,57 @@
+.bg{
+    @apply fixed top-[50%] left-[50%] bg-black bg-opacity-50 w-full h-full blur-2xl;
+    transform: translate(-50%, -50%);
+}
+.container {
+    @apply mainBlock fixed top-[50%] left-[50%] box-border max-w-sm max-h-[550px] px-14 content-evenly items-center grid w-max sm:w-full ;
+    transform: translate(-50%, -50%);
+
+    .closeItem {
+        @apply absolute right-5 top-6;
+
+        .hamburgerItem {
+            @apply block h-0.5 w-5 bg-gray-600
+        }
+
+        :first-child {
+            transform: translate(0px, 0) rotate(45deg);
+        }
+
+        :last-child {
+            transform: translate(0px, -2px) rotate(-45deg);
+        }
+    }
+
+    .titleAuth {
+        .active {
+            @apply text-mainColor
+        }
+
+        h1 {
+            cursor: pointer;
+        }
+
+    }
+
+    .bodyAuth {
+        @apply grid gap-4;
+
+        input {
+            @apply w-full h-12;
+        }
+
+        >p {
+            @apply text-mainColor text-sm text-center;
+        }
+
+        .submitButtuon {
+            @apply text-center w-full mt-10;
+
+            button {
+                @apply w-full;
+            }
+        }
+    }
+
+
+}

@@ -33,6 +33,13 @@ module.exports = {
           height: '100%',
           padding: '30px 20px',
           boxSizing:'border-box'
+        },
+        '.inputStyle':{
+          padding:'0.75rem',
+          borderRadius:'1rem',
+          backgroundColor:theme('colors.gray.200'),
+          border:'none',
+          boxSizing:'border-box'
         }
       })
     }),

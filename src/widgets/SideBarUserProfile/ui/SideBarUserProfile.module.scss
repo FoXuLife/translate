@@ -1,16 +1,20 @@
 .container {
     @apply grid grid-cols-[max-content,auto] w-full gap-7;
-    article{
+
+    article {
         @apply grid grid-rows-[max-content,1fr] gap-7;
-    .searchBlock {
-        @apply mainBlock flex justify-between items-center h-max w-full;
-        .hiddenBlock {
-            @apply lg:hidden
+
+        .headerBlock {
+            @apply mainBlock grid grid-cols-[1fr,auto] items-center h-max w-full;
+
+            .hiddenBlock {
+                @apply lg:hidden
+            }
         }
-    }}
+    }
 
     .sideBar {
-        @apply mainBlock lg:grid  hidden box-border grid-rows-[max-content,max-content,1fr] text-center ;
+        @apply mainBlock lg:grid hidden box-border grid-rows-[max-content,max-content,1fr] text-center;
 
         .logo {
             @apply flex pb-4 items-end gap-2 px-5;
@@ -43,8 +47,9 @@
         }
     }
 }
+
 @media screen and (max-width:1024px) {
-    .container{
+    .container {
         @apply grid-cols-1;
     }
 }

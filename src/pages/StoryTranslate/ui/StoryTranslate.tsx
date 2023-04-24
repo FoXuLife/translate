@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
 import c from './StoryTranslate.module.scss'
-import { SearchPanel } from 'entities/SearchPanel/ui/SearchPanel'
 
-import BurgerMenu from 'entities/BurgerMenu/ui/BurgerMenu'
 import { StoryTable } from 'widgets/StoryTable/ui/StoryTable'
 import { useAppDispatch, useAppSelector } from 'app/model/hook/MainHooks'
-import { addedItemThunk } from '../model/redux/StoryTranslateSlice'
+import { getTranslates } from 'pages/UserProfilePage/model/redux/UserProfileSlice'
 
 export const StoryTranslate: React.FC = () => {
   const slice = useAppSelector((store) => store?.storySlice)
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(addedItemThunk())
+    dispatch(getTranslates())
   }, [])
-
 
   return (
     <div className={c.container}>
-      
       <div className={c.storyList}>
         <div className={c.headerStory}>
           <div className={c.title}>

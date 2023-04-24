@@ -3,14 +3,14 @@ type TProps = {
   type: 'clear' | 'withBorder' | 'withBackground'
   children: React.ReactNode
   disabled?: boolean
-  onClickHandle?: () => void
+  onClickHandle?: any
 }
 export const Buttons: React.FC<TProps> = ({
   type,
   children,
   disabled,
   onClickHandle,
-  ...props
+
 }) => {
   const className = `${c.buttons} 
     ${

@@ -9,6 +9,7 @@ import ava from './owl.png'
 import { BsTranslate, BsClockHistory } from 'react-icons/bs'
 import { SearchPanel } from 'entities/SearchPanel/ui/SearchPanel'
 import BurgerMenu from 'entities/BurgerMenu/ui/BurgerMenu'
+import { useAuthorization } from 'app/model/hook/useAuth'
 
 type TProps = {
   children: React.ReactNode
@@ -16,6 +17,7 @@ type TProps = {
 
 export const SideBarUserProfile: React.FC<TProps> = ({ children }) => {
   const [isOpened, setisOpened] = useState(false)
+  
   return (
     <div className={c.container}>
       <div className={c.sideBar}>
@@ -25,10 +27,10 @@ export const SideBarUserProfile: React.FC<TProps> = ({ children }) => {
         </div>
         <nav>
           <ul>
-            <Li href="my-translate" Icon={<BsClockHistory />}>
+            <Li href="" Icon={<BsClockHistory />}>
               Мои Переводы
             </Li>
-            <Li href="" Icon={<BsTranslate />}>
+            <Li href="translate" Icon={<BsTranslate />}>
               Перевести
             </Li>
           </ul>
@@ -40,12 +42,12 @@ export const SideBarUserProfile: React.FC<TProps> = ({ children }) => {
         </div>
       </div>
       <article>
-        <div className={c.searchBlock}>
+        <div className={c.headerBlock}>
           <SearchPanel />
           <div className={c.hiddenBlock}>
             <BurgerMenu isOpened={isOpened} setIsOpened={setisOpened}>
-              <a href="my-translate">Мои Переводы</a>
-              <a href="">Перевести</a>
+              <a href="" onClick={()=>setisOpened(false)}>Мои Переводы</a>
+              <a href="translate" onClick={()=>setisOpened(false)}>Перевести</a>
             </BurgerMenu>
           </div>
         </div>

@@ -4,10 +4,11 @@ import { UserProfilePage } from 'pages/UserProfilePage/ui/UserProfilePage'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import c from './App.module.scss'
-import HomePage from 'pages/HomePage/ui/HomePage'
-import { LoginPage } from 'pages/LoginPage/ui/LoginPage'
-import { StoryTranslate } from 'pages/StoryTranslate/ui/StoryTranslate'
 
+import HomePage from 'pages/HomePage/ui/HomePage'
+import { AuthPage } from 'pages/AuthPage/ui/AuthPage'
+import { StoryTranslate } from 'pages/StoryTranslate/ui/StoryTranslate'
+import { TranslatePage } from 'pages/TranslatePage/ui/TranslatePage'
 
 const router = createBrowserRouter([
   {
@@ -16,15 +17,21 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <LoginPage />,
+    element: <AuthPage />,
   },
   {
     path: '/profile',
+    
     element: <UserProfilePage />,
     children: [
       {
-        path: '/profile/my-translate',
+        index: true,
         element: <StoryTranslate />,
+      },
+      {
+        path: '/profile/translate',
+        index: false,
+        element: <TranslatePage />,
       },
     ],
   },
@@ -32,9 +39,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className={c.app}>
-      
-        <RouterProvider router={router} />
- 
+      <RouterProvider router={router} />
     </div>
   )
 }

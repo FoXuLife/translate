@@ -5,10 +5,11 @@ import { HeaderHomePage } from 'entities/HeaderHomePage/ui/HeaderHomePage'
 type TProps = {}
 export const LeftSide: React.FC<TProps> = () => {
   const [isOpened, setIsOpened] = useState(false)
+  
   return (
     <div className={c.leftSide}>
       <HeaderHomePage isOpened={isOpened} setIsOpened={setIsOpened} />
-
+    
       <article>
         <>
           <h1 className={c.title}>Перевод от носителей языка</h1>
