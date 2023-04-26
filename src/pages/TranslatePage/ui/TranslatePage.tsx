@@ -12,22 +12,30 @@ import DynamicInputs, {
 } from 'features/DynamicInputs/ui/DynamicInputs'
 import { Buttons } from 'shared/Buttons/ui/Buttons'
 import CostCalculation from '../lib/CostCalculated'
-import { setNewTranslate } from 'pages/UserProfilePage/model/redux/UserProfileSlice'
+
 import { useAuthorization } from 'app/model/hook/useAuth'
+import { setNewTranslate } from 'pages/StoryTranslate/model/redux/StoryTranslateSlice'
 
 export const TranslatePage: React.FC = React.memo(() => {
   const distapch = useAppDispatch()
   const usedValue = useAppSelector((store) => store?.homePage)
 
-  const [textareaValue, setTextareaValue] = useState<string>()
+  const [textareaValue, setTextareaValue] = useState<string | null>(null)
   const onchangeTextareaValue = (
-    changeTextEvent: ChangeEvent<HTMLTextAreaElement>) => setTextareaValue(changeTextEvent.target.value)
+    changeTextEvent: ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setTextareaValue(changeTextEvent.target.value)
+  }
 
   const [dynamicValue, setDynamicValue] = useState<any | null>(null)
-  const onChangeDynamicValue = (dynamicValues: TFormState) =>setDynamicValue(dynamicValues)
+  const onChangeDynamicValue = (dynamicValues: TFormState) =>
+    setDynamicValue(dynamicValues)
 
-  const [countWordInText, setCountWord] = useState<null | number | string>()
-  const onChangeCount = (count: number | string) => setCountWord(count)
+  const [countWordInText, setCountWord] = useState<
+    null | number | string | undefined
+  >(null)
+  const onChangeCount = (count: number | string | null | undefined) =>
+    setCountWord(count)
 
   const [price, setPrice] = useState<null | number>()
 
@@ -50,21 +58,35 @@ export const TranslatePage: React.FC = React.memo(() => {
   return (
     <div className={c.container}>
       <form onSubmit={handleSubmit}>
-        <div className={c.inputBlock}>
-          <Textarea
-            name="uid"
-            label={'Введите текст для перевода'}
-            value={textareaValue}
-            onChange={onchangeTextareaValue}
-            disabled={countWordInText ? true : false}
-          />
-          <p>или</p>
-          <div className={c.inputFile}>
-            <FileInput
-              onChangeCount={onChangeCount}
-              disabled={textareaValue ? true : false}
-            />
-          </div>
+        <div
+          className={`${c.inputBlock} ${
+            textareaValue || countWordInText ? c.textBlockFull : ''
+          }`}
+        >
+          {!countWordInText && (
+            <div className={!textareaValue ? c.textBlockHalf : ''}>
+              <Textarea
+                name="uid"
+                label={'Введите текст для перевода'}
+                value={textareaValue}
+                onChange={onchangeTextareaValue}
+                disabled={countWordInText ? true : false}
+              />
+            </div>
+          )}
+          {!!textareaValue || !!countWordInText || <p>или</p>}
+          {!textareaValue && (
+            <div
+              className={`${c.inputFile} ${
+                !countWordInText ? c.inputBlockHalf : ''
+              }`}
+            >
+              <FileInput
+                onChangeCount={onChangeCount}
+                disabled={textareaValue ? true : false}
+              />
+            </div>
+          )}
         </div>
         <div className={c.submitBlock}>
           <div className={c.dialectList}>
@@ -88,8 +110,12 @@ export const TranslatePage: React.FC = React.memo(() => {
           <div className={c.submit}>
             <Buttons
               type={'withBackground'}
-
               onClickHandle={Click}
+              disabled={
+                dynamicValue && (textareaValue || countWordInText)
+                  ? false
+                  : true
+              }
             >
               Оплатить
             </Buttons>

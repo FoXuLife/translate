@@ -6,7 +6,7 @@ interface Props {
   name: string
   placeholder?: string
   register?: UseFormRegister<any>
-  value?: string
+  value?: string | null
   label: string
   disabled: boolean
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>
@@ -31,7 +31,7 @@ function Textarea({
         name={name}
         placeholder={placeholder}
         // ref={register} // register is only defined if using React Hook Form
-        value={value}
+        value={value !== null ? value : undefined}
         onChange={onChange}
         onBlur={onBlur}
         className={c.textArea}

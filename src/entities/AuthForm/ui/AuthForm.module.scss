@@ -1,0 +1,30 @@
+.titleAuth {
+    .active {
+        @apply text-mainColor
+    }
+
+    h1 {
+        cursor: pointer;
+    }
+
+}
+
+.bodyAuth {
+    @apply grid gap-4;
+
+    input {
+        @apply w-full h-12;
+    }
+
+    >p {
+        @apply text-mainColor text-sm text-center;
+    }
+
+    .submitButtuon {
+        @apply text-center w-full mt-10;
+
+        button {
+            @apply w-full;
+        }
+    }
+}

@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import AuthPageSlice from 'pages/AuthPage/model/redux/AuthPageSlice'
 import HomePageSlice from 'pages/HomePage/model/redux/HomePageSlice'
 import storyTranslateSlice from 'pages/StoryTranslate/model/redux/StoryTranslateSlice'
+import UserProfileSlice from 'pages/UserProfilePage/model/redux/UserProfileSlice'
 
 const store = configureStore({
   reducer: {
     storySlice: storyTranslateSlice,
     homePage: HomePageSlice,
-    authPage:AuthPageSlice
+    userPage:UserProfileSlice 
   },
 })
 export type RootState = ReturnType<typeof store.getState>

@@ -1,20 +1,22 @@
 .inputContainer {
-    @apply relative grid items-center h-full justify-items-center;
-
-
-
+    @apply relative grid items-center h-full justify-items-center px-4 ;
     .input {
-        @apply inputStyle focus:outline-none;
+        @apply inputStyle focus:outline-none ;
 
         &::placeholder {
             @apply justify-start align-top;
         }
 
-
+        
     }
-
+    
+    label {
+        @apply absolute w-full px-4 box-border;
+        word-wrap: break-word;
+    }
+   
     .fileInput {
-        @apply opacity-0;
+        @apply opacity-0 ;
 
 
     }

@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import c from './App.module.scss'
 
 import HomePage from 'pages/HomePage/ui/HomePage'
-import { AuthPage } from 'pages/AuthPage/ui/AuthPage'
+
 import { StoryTranslate } from 'pages/StoryTranslate/ui/StoryTranslate'
 import { TranslatePage } from 'pages/TranslatePage/ui/TranslatePage'
 
@@ -16,12 +16,8 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: '/login',
-    element: <AuthPage />,
-  },
-  {
     path: '/profile',
-    
+
     element: <UserProfilePage />,
     children: [
       {

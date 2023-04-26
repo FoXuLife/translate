@@ -4,7 +4,7 @@ import c from './StoryTranslate.module.scss'
 
 import { StoryTable } from 'widgets/StoryTable/ui/StoryTable'
 import { useAppDispatch, useAppSelector } from 'app/model/hook/MainHooks'
-import { getTranslates } from 'pages/UserProfilePage/model/redux/UserProfileSlice'
+import { getTranslates } from '../model/redux/StoryTranslateSlice'
 
 export const StoryTranslate: React.FC = () => {
   const slice = useAppSelector((store) => store?.storySlice)

@@ -5,6 +5,7 @@ type TInitialState = {
     id: number | null
     username: string | null
     email: string | null
+    balance: number | null
     token: string | null
     isAuth: boolean
   }
@@ -15,8 +16,9 @@ const initialState: TInitialState = {
     id: null,
     username: null,
     email: null,
+    balance: 192,
     token: null,
-    isAuth: false,
+    isAuth: true,
   },
 }
 
@@ -33,6 +35,7 @@ const AuthPageSlice = createSlice({
         username: null,
         email: null,
         token: null,
+        balance: null,
         isAuth: false,
       }
     },

@@ -14,43 +14,115 @@
             >p {
                 @apply relative;
                 @apply text-2xl py-5;
-
-                // &:after {
-                //     content: ' ';
-                //     position: absolute;
-                //     display: block;
-                //     top: 50%;
-                //     right: 35%;
-                //     width: 100px;
-                //     height: 1px;
-                //     background: gray;
-                // }
-
-                // &::before {
-                //     content: ' ';
-                //     position: absolute;
-                //     top: 50%;
-                //     left: 35%;
-                //     display: block;
-                //     width: 100px;
-                //     height: 1px;
-                //     background: gray;
-                // }
             }
 
+
+
             .inputFile {
-                @apply bg-gray-200 rounded-xl text-center h-full;
+                @apply relative bg-gray-50 rounded-xl text-center h-full w-full;
 
-                label {
-                    @apply absolute text-center;
+                >svg{
+                    @apply absolute text-2xl right-5 top-5 text-gray-700 cursor-pointer z-20;
                 }
-
                 input {
                     @apply min-h-full
                 }
 
             }
 
+        }
+        .inputBlockHalf{
+           
+            @apply self-end ;
+            animation: inputBlockClose 1s;
+            
+           
+        }
+        @keyframes inputBlockClose {
+            0% {
+                @apply bg-gray-200 h-[200%];
+            }
+
+            50% {
+                @apply bg-gray-100 ;
+            }
+
+            100% {
+                @apply bg-gray-50 h-full;
+            }
+
+        }
+        .textBlockHalf{
+            textarea {
+                @apply self-start ;
+                animation: textBlockClose 1s;
+            }
+            
+            @keyframes textBlockClose {
+                0% {
+                    @apply bg-gray-200 h-[200%];
+                }
+
+                50% {
+                    @apply bg-gray-100;
+                }
+
+                100% {
+                    @apply bg-gray-50 h-full;
+                }
+
+            }
+        }
+        .textBlockFull {
+            @apply grid-rows-1;
+
+            ::-webkit-scrollbar {
+                width: 3px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: black;
+                border-radius: 20px;
+            }
+
+            textarea {
+                @apply bg-gray-200 self-start;
+                animation: textBlockOpen 1s;
+            }
+            @keyframes textBlockOpen {
+                0% {
+                    @apply bg-gray-50 h-[40%];
+                }
+
+                50% {
+                    @apply bg-gray-100;
+                }
+
+                100% {
+                    @apply bg-gray-200 h-full;
+                }
+
+            }
+            .inputFile{
+                @apply bg-gray-200 self-end;
+                animation: InputOpen 1s;
+               
+            }
+            
+            @keyframes InputOpen {
+                0% {
+                    @apply bg-gray-50 h-[40%];
+                }
+
+                50% {
+                    @apply bg-gray-100;
+                }
+
+                100% {
+                    @apply bg-gray-200 h-full;
+                }
+
+            }
         }
 
         .submitBlock {
@@ -75,15 +147,16 @@
                 button {
                     @apply w-full h-full bg-transparent text-black border-black border-2 border-solid min-h-[100px] font-extralight text-3xl md:text-[2vw];
 
-                    
+
                 }
+
                 @media (max-width: 1000px) {
                     button {
-                    
+
                         max-width: 100%;
                     }
                 }
-                
+
             }
         }
 

@@ -25,11 +25,15 @@ export const BurgerMenu: React.FC<TProps> = ({
       </div>
       <nav>
         {Children.map(children, (child) => {
-          return (
-            <NavLink to={child?.props?.href} {...child.props}>
-              {child?.props?.children}
-            </NavLink>
-          )
+          if (child?.props?.repres) {
+            return child
+          } else {
+            return (
+              <NavLink to={child?.props?.href} {...child.props}>
+                {child?.props?.children}
+              </NavLink>
+            )
+          }
         })}
       </nav>
     </div>

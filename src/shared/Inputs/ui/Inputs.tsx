@@ -16,7 +16,9 @@ const Inputs: React.FC<TProps> = ({
     <div className={c.inputContainer}>
       {label && (
         <label htmlFor={name}>
-          {value ? (typeof value !== 'string' ? value.name : value) : label}
+          <p>
+            {value ? (typeof value !== 'string' ? value.name : value) : label}
+          </p>
         </label>
       )}
       <input

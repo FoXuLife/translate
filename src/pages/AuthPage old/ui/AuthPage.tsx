@@ -6,23 +6,23 @@ import InputRHF from 'shared/Inputs/ui/inputRHF'
 
 type TProps = {
   openingWindowAuth?: (isOpened: boolean, isRegistration: boolean) => void
-  isRegistr?: boolean
+  Open?: boolean
 }
-export const AuthPage: React.FC<TProps> = ({
-  openingWindowAuth,
-  isRegistr,
-}) => {
-  const [isRegistration, setIsRegistration] = useState(isRegistr)
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm()
-
-  const changeStateAuth = (state: boolean) => {
-    setIsRegistration(state)
+export const AuthPage: React.FC<TProps> = ({ openingWindowAuth, Open }) => {
+  // const [isRegistration, setIsRegistration] = useState(isRegistr)
+  const [isOpened, setisOpened] = useState(Open)
+  const closeOpenListener = (state: boolean) => {
+    setisOpened(state)
   }
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm()
+
+  // const changeStateAuth = (state: boolean) => {
+  //   setIsRegistration(state)
+  // }
   const onSubmit = (e: any) => {
     fetch('http://188.120.244.172:8000/login', {
       mode: 'no-cors',
@@ -36,13 +36,10 @@ export const AuthPage: React.FC<TProps> = ({
   }
 
   return (
-    <>
-      <div
-        className={c.bg}
-        onClick={() => openingWindowAuth && openingWindowAuth(false, false)}
-      ></div>
+    <div className={isOpened ?c.popup : c.hide}>
+      <div className={c.bg} onClick={() => closeOpenListener(false)}></div>
       <div className={c.container}>
-        <div className={c.titleAuth}>
+        {/* <div className={c.titleAuth}>
           <h1
             className={!isRegistration ? c.active : ''}
             onClick={() => {
@@ -112,8 +109,8 @@ export const AuthPage: React.FC<TProps> = ({
             </Buttons>
           </div>
           <p>Не помните пароль?</p>
-        </form>
+        </form> */}
       </div>
-    </>
+    </div>
   )
 }
