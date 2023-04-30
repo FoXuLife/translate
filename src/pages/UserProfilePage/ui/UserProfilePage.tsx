@@ -7,7 +7,7 @@ import { useAuthorization } from 'app/model/hook/useAuth'
 type TProps = {}
 
 export const UserProfilePage: React.FC<TProps> = () => {
-  useAuthorization('/')
+  useAuthorization('/preview')
   return (
     <div className={c.container}>
       <SideBarUserProfile>

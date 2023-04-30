@@ -1,8 +1,8 @@
 .searchBlock {
-    @apply flex w-max bg-gray-200 rounded-2xl items-center;
+    @apply flex sm:w-max w-full bg-gray-200 rounded-2xl items-center;
     
     svg{
-        @apply p-2;
+        @apply w-max p-2;
     }
 
 }

@@ -90,7 +90,7 @@ export function getTranslates(): ThunkType<string> {
   }
 }
 
-export function setNewTranslate(e: any): ThunkType<string> {
+export function setNewTranslate(e: string): ThunkType<string> {
   return async (dispatch, getState) => {
     const state = getState()
     const data = {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import c from './AuthForm.module.scss'
 import { Buttons } from 'shared/Buttons/ui/Buttons'
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import InputRHF from 'shared/Inputs/ui/inputRHF'
 
 type TProps = {
@@ -19,7 +19,7 @@ export const AuthForm: React.FC<TProps> = ({isRegistr}) => {
   const changeStateAuth = (state: boolean) => {
     setIsRegistration(state)
   }
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: FieldValues) => {
     fetch('http://188.120.244.172:8000/login', {
       mode: 'no-cors',
       method: 'POST',

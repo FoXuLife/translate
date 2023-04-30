@@ -5,14 +5,14 @@ import { CheckEextensions } from '../lib/checkExtensions'
 import { MdLayersClear } from 'react-icons/md'
 
 interface FileInputProps {
-  onChangeCount: (count: number | null | undefined) => void
+  onChangeCount: (count: number | string | null | undefined) => void
   disabled: boolean
 }
 const FileInput: React.FC<FileInputProps> = ({ onChangeCount, disabled }) => {
   const [fileValue, setFileValue] = useState<File | undefined>()
   useEffect(() => {
     if (fileValue) {
-      CheckEextensions(fileValue).then((num: any) => {
+      CheckEextensions(fileValue).then((num: number | string | undefined) => {
         onChangeCount(num)
       })
     }

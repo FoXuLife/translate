@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import c from './Select.module.scss'
 import { TDialect } from 'pages/HomePage/model/redux/HomePageSlice'
 
-type Option = {
+export type Option = {
   id: number
   name: string
   dialects?: TDialect[]

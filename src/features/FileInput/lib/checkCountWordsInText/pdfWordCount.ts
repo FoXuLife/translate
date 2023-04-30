@@ -1,4 +1,9 @@
 import * as pdfjs from 'pdfjs-dist'
+import {
+  TextContent,
+  TextItem,
+  TextMarkedContent,
+} from 'pdfjs-dist/types/src/display/api'
 
 const countWordsInPdf = async (file: File) => {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
@@ -6,8 +11,8 @@ const countWordsInPdf = async (file: File) => {
   const loadPdf = async (file: File) => {
     const buffer = await file.arrayBuffer()
 
-    const loadingTask = pdfjs.getDocument(buffer)
-    const pdf = await loadingTask.promise
+    const loadingTask: pdfjs.PDFDocumentLoadingTask = pdfjs.getDocument(buffer)
+    const pdf: pdfjs.PDFDocumentProxy = await loadingTask.promise
     return extractText(pdf)
   }
 
@@ -18,9 +23,9 @@ const countWordsInPdf = async (file: File) => {
       textContent.push(content)
     }
     const textItems = textContent.map(async (page) => {
-      const textPage = await page.getTextContent()
-      const wordsPage = textPage.items.map((item: any) => {
-        const itemText = item.str
+      const textPage: TextContent = await page.getTextContent()
+      const wordsPage: string[] = textPage.items.map((item: TextItem | any) => {
+        const itemText: string = item.str
         return itemText.trim()
       })
       return wordsPage.join(' ')
@@ -41,6 +46,6 @@ const countWordsInPdf = async (file: File) => {
 }
 
 export const pdfWordCount = async (file: File) => {
-  const count = await countWordsInPdf(file) 
+  const count = await countWordsInPdf(file)
   return count
 }

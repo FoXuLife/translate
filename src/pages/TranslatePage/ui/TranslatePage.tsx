@@ -1,6 +1,4 @@
-//РЕФАКТОРИНГ ! !  ! !  ! !! !
-
-import React, { ChangeEvent, useState, useEffect } from 'react'
+import React, { ChangeEvent, useState, useEffect, useMemo } from 'react'
 
 import c from './TranslatePage.module.scss'
 
@@ -17,44 +15,38 @@ import { useAuthorization } from 'app/model/hook/useAuth'
 import { setNewTranslate } from 'pages/StoryTranslate/model/redux/StoryTranslateSlice'
 
 export const TranslatePage: React.FC = React.memo(() => {
+  // useAuthorization('/preview') // Проверка на авторизацию
   const distapch = useAppDispatch()
-  const usedValue = useAppSelector((store) => store?.homePage)
+  const usedValue = useAppSelector((store) => store?.homePage) //
 
-  const [textareaValue, setTextareaValue] = useState<string | null>(null)
-  const onchangeTextareaValue = (
-    changeTextEvent: ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setTextareaValue(changeTextEvent.target.value)
-  }
+  const [textareaValue, setTextareaValue] = useState<string | null>(null) // Значение из текстового поля
+  const onchangeTextareaValue = (changeTextEvent: ChangeEvent<HTMLTextAreaElement>) => setTextareaValue(changeTextEvent.target.value) // onChange для текстового поля
+  
+  const [dynamicValue, setDynamicValue] = useState<TFormState | null>(null) // Значения из Select элементов 
+  const onChangeDynamicValue = (dynamicValues: TFormState) =>setDynamicValue(dynamicValues) // Изменение значений из Select элементов
 
-  const [dynamicValue, setDynamicValue] = useState<any | null>(null)
-  const onChangeDynamicValue = (dynamicValues: TFormState) =>
-    setDynamicValue(dynamicValues)
+  const [countWordInText, setCountWord] = useState<null | number | string | undefined>(null) //  Значение из файла, а точнее количество слов в файле
+  const onChangeCount = (count: number | string | null | undefined) =>setCountWord(count) // Изменение значения из файла
 
-  const [countWordInText, setCountWord] = useState<
-    null | number | string | undefined
-  >(null)
-  const onChangeCount = (count: number | string | null | undefined) =>
-    setCountWord(count)
-
-  const [price, setPrice] = useState<null | number>()
+  const [price, setPrice] = useState<null | number>() // Цена с учетом введенных выше двнных
 
   const handleSubmit = (e: any) => {
-    e.preventDefault()
-    if (dynamicValue && (textareaValue || countWordInText) && price) {
-    }
+    // e.preventDefault()
+    // if (dynamicValue && (textareaValue || countWordInText) && price) {
+    // }
   }
-  const Click = (e: any) => {
-    distapch(setNewTranslate(textareaValue))
+  const Click = () => {
+    // distapch(setNewTranslate(textareaValue))
   }
+  
   useEffect(() => {
     if (dynamicValue && (textareaValue || countWordInText)) {
       const value: number =
-        textareaValue?.split(' ').length || Number(countWordInText)
-      setPrice(CostCalculation(value, dynamicValue?.promptness))
+        textareaValue?.split(' ').length || Number(countWordInText)  
+      setPrice(CostCalculation(value, dynamicValue?.promptness)) // Мемоизировать
     }
-  }, [dynamicValue, textareaValue, countWordInText])
-  useAuthorization('/')
+  }, [dynamicValue, textareaValue, countWordInText]) 
+
   return (
     <div className={c.container}>
       <form onSubmit={handleSubmit}>

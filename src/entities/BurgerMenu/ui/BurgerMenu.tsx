@@ -1,3 +1,4 @@
+// переделать на рендер внутри этой компоненты , а не в родительских
 import React, { Children } from 'react'
 
 import c from './BurgerMenu.module.scss'
@@ -6,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 type TProps = {
   isOpened: boolean
   setIsOpened: (state: boolean) => void
-  children: any
+  children:JSX.Element | JSX.Element[]
 }
 
 export const BurgerMenu: React.FC<TProps> = ({
@@ -49,4 +50,4 @@ export const BurgerMenu: React.FC<TProps> = ({
   )
 }
 
-export default BurgerMenu
+export default React.memo(BurgerMenu)

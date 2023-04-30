@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
 
 import c from './LiItem.module.scss'
+import React from 'react'
 type TProps = {
   href?: string
   children: string
-  Icon?: any
+  Icon?: React.ReactNode
   onClick?: () => void
 }
 const LiItem: React.FC<TProps> = ({ href, children, Icon, onClick }) => {

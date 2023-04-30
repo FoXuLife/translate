@@ -18,6 +18,7 @@ export type TInputRHF = {
   label?: string
   type?: 'text' | 'date' | 'email' | 'file' | 'password' | 'search' | 'checkbox'
   disabled?: boolean
+  autofocus?: boolean
   placeholder?: string
   options:any
 }

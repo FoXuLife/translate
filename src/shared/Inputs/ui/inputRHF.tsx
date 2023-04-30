@@ -11,6 +11,7 @@ const InputRHF: React.FC<TInputRHF> = ({
   disabled,
   placeholder,
   options,
+  autofocus,
   ...props
 }) => {
   const className = `${c.input} ${
@@ -23,6 +24,7 @@ const InputRHF: React.FC<TInputRHF> = ({
         type={type}
         disabled={disabled}
         placeholder={placeholder}
+        autoFocus={autofocus}
         {...register(name, options)}
         {...props}
       />

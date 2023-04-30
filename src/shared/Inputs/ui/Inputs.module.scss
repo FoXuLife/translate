@@ -1,7 +1,7 @@
 .inputContainer {
     @apply relative grid items-center h-full justify-items-center px-4 ;
     .input {
-        @apply inputStyle focus:outline-none ;
+        @apply inputStyle focus:outline-none w-full;
 
         &::placeholder {
             @apply justify-start align-top;

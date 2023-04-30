@@ -23,17 +23,17 @@ export const AuthPage: React.FC<TProps> = ({ openingWindowAuth, Open }) => {
   // const changeStateAuth = (state: boolean) => {
   //   setIsRegistration(state)
   // }
-  const onSubmit = (e: any) => {
-    fetch('http://188.120.244.172:8000/login', {
-      mode: 'no-cors',
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({ email: e.email, password: e.password }),
-    })
-  }
+  // const onSubmit = (e: any) => {
+  //   fetch('http://188.120.244.172:8000/login', {
+  //     mode: 'no-cors',
+  //     method: 'POST',
+  //     credentials: 'include',
+  //     headers: {
+  //       'Content-Type': 'application/json;charset=utf-8',
+  //     },
+  //     body: JSON.stringify({ email: e.email, password: e.password }),
+  //   })
+  // }
 
   return (
     <div className={isOpened ?c.popup : c.hide}>

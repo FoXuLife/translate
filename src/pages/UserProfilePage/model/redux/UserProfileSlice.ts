@@ -20,9 +20,9 @@ export type ThunkType<T> = ThunkAction<
 
 const initialState: TInitialState = {
   userInfo: {
-    id: null,
-    username: null,
-    email: null,
+    id: 0,
+    username: 'Foxu ',
+    email: 'nik.kol.2015@mail.com',
     balance: 192,
     token: null,
     isAuth: true,
@@ -45,7 +45,15 @@ const userProfileSlice = createSlice({
         isAuth: false,
       }
     },
+    setUserInfo(state, action) {
+      const key: string = Object.keys(action.payload)[0]
+      if (key === 'username' || key === 'email') {
+        state.userInfo[key] = action.payload[key]
+        state.userInfo[key] = action.payload[key]
+      }
+      return
+    },
   },
 })
-export const { login, logout } = userProfileSlice.actions
+export const { login, logout, setUserInfo } = userProfileSlice.actions
 export default userProfileSlice.reducer

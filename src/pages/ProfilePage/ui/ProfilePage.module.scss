@@ -1,0 +1,18 @@
+.profile {
+    @apply mainBlock ;
+
+    .information {
+        @apply flex items-center gap-5 justify-center;
+
+        .email {
+            @apply text-sm text-gray-400;
+        }
+
+        img {
+            @apply w-32 h-32 border-2 border-solid border-gray-200 rounded-full;
+        }
+    }
+    .editForm{
+        @apply grid grid-cols-2 justify-center gap-5;
+    }
+}

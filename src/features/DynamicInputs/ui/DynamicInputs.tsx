@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-
 import c from './DynamicInputs.module.scss'
 
 import {
   TLanguge,
+  TPromptness,
   TStyleTranslate,
 } from 'pages/HomePage/model/redux/HomePageSlice'
-import Select from 'shared/Select/ui/Select'
+import Select, { Option } from 'shared/Select/ui/Select'
 
 export type TFormState = {
   language: number | null
@@ -17,7 +17,7 @@ export type TFormState = {
 export type TProps = {
   languages: TLanguge[]
   styleTranslate: TStyleTranslate[]
-  promptness: TStyleTranslate[]
+  promptness: TPromptness[]
   setDynamicValue: (values: any) => void
 }
 
@@ -42,13 +42,13 @@ const DynamicInputs: React.FC<TProps> = ({
             FormState.dialect ? FormState.dialect : 0
           ],
         style: styleTranslate[FormState.style ? FormState.style : 0],
-        promptness: promptness[FormState.promptness ? FormState.promptness : 0],
+        promptness: FormState.promptness ? FormState.promptness : 0,
       }
       setDynamicValue(objValue)
     }
   }, [FormState])
 
-  const handleOptionSelected = (option: any, prop: string) => {
+  const handleOptionSelected = (option: Option, prop: string) => {
     setstateForm({ ...FormState, [prop]: option.id - 1 })
   }
 

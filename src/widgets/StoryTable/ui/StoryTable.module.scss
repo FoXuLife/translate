@@ -10,7 +10,7 @@ table {
     tr {
         @apply  text-center ;
         >:first-child {
-            float: left
+            @apply float-left bg-gray-200 sm:bg-white;
         }
 
         .success {

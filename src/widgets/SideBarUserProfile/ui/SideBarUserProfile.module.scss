@@ -5,19 +5,20 @@
         @apply grid grid-rows-[max-content,1fr] gap-7;
 
         .headerBlock {
-            @apply mainBlock grid grid-cols-[1fr,auto,auto] items-center h-max w-full;
+            @apply mainBlock grid grid-cols-[1fr,auto] gap-x-5 items-center h-max w-full;
 
-            >.user {
-                @apply hidden lg:flex self-end items-center gap-3;
+            .userBlock {
+                @apply flex items-center; 
+                .user {
+                    @apply hidden lg:flex self-end items-center gap-3;
 
-                img {
-                    @apply rounded-full w-10 border-[2px] border-inherit border-solid border-gray-200;
+                    img {
+                        @apply rounded-full w-10 border-[2px] border-inherit border-solid border-gray-200;
+                    }
+
+                   
                 }
-
-                .email {
-                    @apply text-sm text-gray-400;
-                }
-            }
+            
 
 
 
@@ -28,10 +29,11 @@
                     @apply text-2xl text-center align-middle;
                 }
             }
-
+        }
             .hiddenBlock {
                 @apply lg:hidden;
-                .exit{
+
+                .exit {
                     @apply border-0;
                 }
             }
@@ -60,9 +62,10 @@
         }
 
         .balance {
-            @apply  self-end;
+            @apply self-end;
+
             .value {
-                @apply flex gap-2 items-center justify-center ;
+                @apply flex gap-2 items-center justify-center;
 
                 h3 {
                     @apply m-0;
@@ -76,7 +79,8 @@
                     @apply w-5 h-5;
                 }
             }
-            >p{
+
+            >p {
                 @apply font-medium mt-3;
             }
         }
