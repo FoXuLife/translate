@@ -13,7 +13,7 @@ const LiItem: React.FC<TProps> = ({ href, children, Icon, onClick }) => {
     <li className={c.item} onClick={onClick}>
       <NavLink
         className={({ isActive }) => (isActive ? c.active : '')}
-        to={`/profile/${href}`}
+        to={`/${href}`}
       >
         {Icon}
         {children}

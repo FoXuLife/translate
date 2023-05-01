@@ -9,6 +9,7 @@ export type TTranslations = {
   state: -1 | 0 | 1
   link: string
   comment: string
+  price:number
 }
 export type TTranslationsFull = {
   id: number
@@ -47,6 +48,7 @@ export function getTranslates(): ThunkType<string> {
         state: 0,
         link: 'sadasda',
         comment: '',
+        price:124,
       },
       {
         id: 2,
@@ -56,6 +58,7 @@ export function getTranslates(): ThunkType<string> {
         state: 1,
         link: 'sadasda',
         comment: '',
+        price:250
       },
       {
         id: 5,
@@ -65,6 +68,7 @@ export function getTranslates(): ThunkType<string> {
         state: 1,
         link: 'sadasda',
         comment: '',
+        price:50
       },
       {
         id: 3,
@@ -74,6 +78,7 @@ export function getTranslates(): ThunkType<string> {
         state: -1,
         link: 'sadasda',
         comment: 'Не верный язык ',
+        price:124
       },
     ]
     dispatch(setTranslations(items))

@@ -41,84 +41,68 @@ export const ProfilePage: React.FC = React.memo(() => {
         </div>
       </div>
       <form className={c.editForm} onSubmit={handleSubmit(onSubmit)}>
-        {isEdit === 'username' ? (
-          <InputRHF
-            name={'username'}
-            register={register}
-            errors={errors}
-            options={{
-              required: '',
-              value: userInfo.username,
-              onBlur: () => {
-                setIsEdit('')
-                handleSubmit(onSubmit)()
-              },
-            }}
-            autofocus={true}
-            label="asdasd"
-          />
-        ) : (
-          <p
-            id="username"
-            onDoubleClick={(e) => {
-              showHiddeFields(e)
-            }}
-          >
-            {userInfo.username}
-          </p>
-        )}
-        {isEdit === 'email' ? (
-          <InputRHF
-            name={'email'}
-            register={register}
-            errors={errors}
-            options={{
-              required: '',
-              value: userInfo.email,
-              onBlur: () => {
-                setIsEdit('')
-                handleSubmit(onSubmit)()
-              },
-            }}
-            autofocus={true}
-          />
-        ) : (
-          <p
-            id="email"
-            onDoubleClick={(e) => {
-              showHiddeFields(e)
-            }}
-          >
-            {userInfo.email}
-          </p>
-        )}
-        {/* <InputRHF
-          name={'email'}
-          register={register}
-          errors={errors}
-          options={{ required: 'Заполни бля' }}
-        />
-        <InputRHF
-          name={'fullname'}
-          register={register}
-          errors={errors}
-          options={{ required: 'Заполни бля' }}
-        />
-        <InputRHF
-          name={'password'}
-          register={register}
-          errors={errors}
-          options={{ required: 'Заполни бля' }}
-        />
-        {dirtyFields.password && (
-          <InputRHF
-            name={'confirmPassword'}
-            register={register}
-            errors={errors}
-            options={{ required: 'Заполни бля' }}
-          />
-        )} */}
-        {/* <Buttons type="withBackground">Сохранить</Buttons> */}
+        <div>
+          <p className={c.label}>Псевданим</p>
+          {isEdit === 'username' ? (
+            <InputRHF
+              name={'username'}
+              register={register}
+              errors={errors}
+              options={{
+                required: '',
+                value: userInfo.username,
+                onBlur: () => {
+                  setIsEdit('')
+                  handleSubmit(onSubmit)()
+                },
+              }}
+              autofocus={true}
+              label="asdasd"
+            />
+          ) : (
+            <p
+              id="username"
+              onDoubleClick={(e) => {
+                showHiddeFields(e)
+              }}
+              className={c.value}
+            >
+              {userInfo.username}
+            </p>
+          )}
+        </div>
+        <div>
+          <p className={c.label}>Email</p>
+          {isEdit === 'email' ? (
+            <InputRHF
+              name={'email'}
+              register={register}
+              errors={errors}
+              options={{
+                required: '',
+                value: userInfo.email,
+                onBlur: () => {
+                  setIsEdit('')
+                  handleSubmit(onSubmit)()
+                },
+              }}
+              autofocus={true}
+            />
+          ) : (
+            <p
+              id="email"
+              onDoubleClick={(e) => {
+                showHiddeFields(e)
+              }}
+              onTouchStart={(e) => {
+                showHiddeFields(e)
+              }}
+              className={c.value}
+            >
+              {userInfo.email}
+            </p>
+          )}
+        </div>
       </form>
     </div>
   )

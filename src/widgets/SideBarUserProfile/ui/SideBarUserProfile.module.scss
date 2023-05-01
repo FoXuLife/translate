@@ -1,5 +1,5 @@
 .container {
-    @apply grid grid-cols-[max-content,auto] w-full gap-7;
+    @apply grid  grid-cols-1 lg:grid-cols-[max-content,auto] w-full gap-7;
 
     article {
         @apply grid grid-rows-[max-content,1fr] gap-7;
@@ -88,8 +88,3 @@
     }
 }
 
-@media screen and (max-width:1024px) {
-    .container {
-        @apply grid-cols-1;
-    }
-}

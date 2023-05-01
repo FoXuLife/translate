@@ -8,7 +8,7 @@ import { useAuthorization } from 'app/model/hook/useAuth'
 
 export default function HomePage() {
   const languages = useAppSelector((store) => store.homePage.languages)
-  useAuthorization('/profile')
+  useAuthorization('/')
   return (
     <div className={c.containerHomePage}>
       <LeftSide />

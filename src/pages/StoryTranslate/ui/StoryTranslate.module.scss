@@ -5,10 +5,10 @@
         @apply mainBlock px-10;
 
         .headerStory {
-            @apply flex justify-between pb-10;
+            @apply sm:flex sm:justify-between pb-10 grid w-full justify-center justify-items-center text-center grid-rows-[1fr,1fr];
 
             h1 {
-                @apply text-4xl mb-3
+                @apply sm:text-4xl mb-3 text-3xl;
             }
 
             p {
@@ -23,10 +23,10 @@
                 @apply grid grid-cols-[max-content,max-content] text-center;
 
                 .statsItem {
-                    @apply grid content-around px-10;
+                    @apply sm:grid content-around sm:px-10 block px-2 border-0 items-center mt-2;
 
                     h1 {
-                        @apply text-4xl;
+                        @apply sm:text-4xl text-3xl;
                     }
                 }
 
@@ -43,21 +43,3 @@
 
 }
 
-
-@media screen and (max-width: 600px) {
-    .headerStory {
-        @apply grid w-full justify-center justify-items-center text-center grid-rows-[1fr,1fr] #{!important};
-   
-        h1 {
-            @apply text-3xl #{!important}
-        }
-    }
-
-    .statsItem {
-        @apply block px-2 border-0 items-center mt-2 #{!important};
-
-        h1 {
-            @apply text-3xl #{!important};
-        }
-    }
-}

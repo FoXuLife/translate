@@ -49,7 +49,6 @@ const userProfileSlice = createSlice({
       const key: string = Object.keys(action.payload)[0]
       if (key === 'username' || key === 'email') {
         state.userInfo[key] = action.payload[key]
-        state.userInfo[key] = action.payload[key]
       }
       return
     },

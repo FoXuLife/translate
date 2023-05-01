@@ -1,97 +1,94 @@
-table {
-    @apply text-black;
-    @apply w-full;
-
-    th,
-    td {
-        @apply p-3 text-center;
-    }
-
-    tr {
-        @apply  text-center ;
-        >:first-child {
-            @apply float-left bg-gray-200 sm:bg-white;
+.storyTable {
+    @apply grid grid-cols-4 gap-5;
+    // .oneLevelShadow {
+    //     box-shadow:
+    //     0 1px 1px rgba(0, 0, 0, 0.15),
+    //     5px 5px 0 -1px #eee,
+    //     6px 6px 1px -1px rgba(0, 0, 0, 0.15),
+    // } 
+    // .twoLevelShadow {
+    //     box-shadow:
+    //     0 1px 1px rgba(0, 0, 0, 0.15),
+    //     5px 5px 0 -1px #eee,
+    //     6px 6px 1px -1px rgba(0, 0, 0, 0.15),
+    //     10px 10px 0 -1px #eee,
+    //     11px 11px 1px -1px rgba(0, 0, 0, 0.15);
+    // } 
+    // .treeLevelShadow {
+    //     box-shadow:
+    //     0 1px 1px rgba(0, 0, 0, 0.15),
+    //     5px 5px 0 -1px #eee,
+    //     6px 6px 1px -1px rgba(0, 0, 0, 0.15),
+    //     10px 10px 0 -1px #eee,
+    //     11px 11px 1px -1px rgba(0, 0, 0, 0.15),
+    //     15px 15px 0 -1px #eee,
+    //     16px 16px 1px -1px rgba(0, 0, 0, 0.15);
+    // } 
+    .translateCard {
+        @apply p-5 border-solid border border-gray-200 rounded-md grid gap-1;
+       
+        >:nth-child(3){
+            @apply text-end;
+        }
+        .name {
+            @apply text-lg font-semibold;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
         }
 
+        .datesOrder {
+            @apply text-sm text-gray-400;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+
+        .state {
+            @apply h-max ;
+            
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            span{
+                @apply text-end;
+            }
+        }
+        .link{
+            @apply text-center;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 4;
+            grid-row-end: 4;
+        }
+        svg {
+            @apply text-xl ml-1 ;
+            
+        }
         .success {
-            @apply text-green-700 px-2 py-1
+            @apply relative  text-green-700 px-2 py-1 hover:text-green-700
         }
 
         .inProgress {
-            @apply text-blue-700 px-2 py-1
+            @apply relative  text-blue-700 px-2 py-1 hover:text-blue-700
         }
+
         .catch {
-            @apply relative flex text-red-700 px-2 py-1 justify-center;
-            svg{
-                @apply text-xl ml-1 hover:text-red-600 ;
-            }
-            .tooltip{
-                @apply absolute z-50 whitespace-normal bottom-8 max-w-[320px] w-max break-words rounded-lg bg-white py-1.5 px-3 font-sans text-sm font-normal text-red-700 shadow-itemsShadow focus:outline-none
-            }
-            .hiddens{
-                @apply hidden;
-            }
+            @apply relative  text-red-700 px-2 py-1 justify-center items-center w-max hover:text-red-700;
+
+           
+
+            
         }
-        >:last-child {
-            float: right
-        }
-    }
-
-    th {
-        @apply uppercase text-sm;
-        letter-spacing: 1px;
-    }
-
-    svg {
-        @apply text-3xl;
-    }
-}
-
-
-
-
-@media screen and (max-width: 600px) {
-    table {
-        border: 0;
-
-
-        thead {
-            display: none;
+        .tooltip {
+            @apply absolute z-50 whitespace-normal bottom-8 max-w-[320px] w-max break-words rounded-lg bg-white py-1.5 px-3 font-sans text-sm font-normal shadow-itemsShadow focus:outline-none
         }
 
-        tr {
-            margin-bottom: 10px;
-            display: block;
-            border-top: 2px solid #ddd;
-
-            >:first-child {
-                float: none !important
-            }
-
-            >:last-child {
-                float: none !important
-            }
-
-        }
-
-        td {
-            display: block;
-            font-size: 13px;
-            border-bottom: 1px dotted #ccc;
-            border-right: 1px solid transparent;
-        }
-
-        td:last-child {
-            border-bottom: 0;
-        }
-
-        td:before {
-            content: attr(data-label);
-            float: left;
-            text-transform: uppercase;
-            font-weight: bold;
+        .hiddens {
+            @apply hidden;
         }
     }
-
-
 }
