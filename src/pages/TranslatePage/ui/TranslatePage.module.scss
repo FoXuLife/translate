@@ -144,11 +144,9 @@
             .submit {
                 @apply grid content-end;
 
-                button {
-                    @apply w-full h-full bg-transparent text-black border-black border-2 border-solid min-h-[100px] font-extralight text-3xl md:text-[2vw];
-
-
-                }
+              >button {
+                @apply w-full h-full min-h-[100px] text-3xl md:text-[2vw] border-2;
+              }
 
                 @media (max-width: 1000px) {
                     button {

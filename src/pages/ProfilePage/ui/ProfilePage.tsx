@@ -1,33 +1,15 @@
 import React, { useState } from 'react'
 
 import c from './ProfilePage.module.scss'
-import { useAuthorization } from 'app/model/hook/useAuth'
-import InputRHF from 'shared/Inputs/ui/inputRHF'
-import { useForm } from 'react-hook-form'
-import { Buttons } from 'shared/Buttons/ui/Buttons'
-import { useAppDispatch, useAppSelector } from 'app/model/hook/MainHooks'
-import { setUserInfo } from 'pages/UserProfilePage/model/redux/UserProfileSlice'
+import { useAppSelector } from 'app/model/hook/MainHooks'
+import ChangeMailnInfo from './Forms/ChangeMailnInfo/ChangeMailnInfo'
+import ChangePassword from './Forms/ChangePassword/ChangePassword'
 
 export const ProfilePage: React.FC = React.memo(() => {
-  const userInfo = useAppSelector((store) => store?.userPage?.userInfo)
-  const {
-    register,
-    handleSubmit,
-    setFocus,
-    reset,
-    formState: { errors, dirtyFields },
-  } = useForm()
+  const userInfo = useAppSelector((store) => store?.userPage)
+  const { username, email } = userInfo.userInfo
+  
 
-  const [isEdit, setIsEdit] = useState<string>('')
-  const dispatch = useAppDispatch()
-  const showHiddeFields = (e: any) => {
-    setIsEdit(e?.target.id)
-    setFocus(e?.target.id, { shouldSelect: true })
-  }
-  const onSubmit = (data: any) => {
-    dispatch(setUserInfo(data))
-    reset()
-  }
   return (
     <div className={c.profile}>
       <div className={c.information}>
@@ -36,74 +18,18 @@ export const ProfilePage: React.FC = React.memo(() => {
           alt=""
         />
         <div className={c.name}>
-          <h1>John Doe</h1>
-          <p className={c.email}>nik.kol.2015@mail.ru</p>
+          <h1>{username}</h1>
+          <p className={c.email}>{email}</p>
         </div>
       </div>
-      <form className={c.editForm} onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <p className={c.label}>Псевданим</p>
-          {isEdit === 'username' ? (
-            <InputRHF
-              name={'username'}
-              register={register}
-              errors={errors}
-              options={{
-                required: '',
-                value: userInfo.username,
-                onBlur: () => {
-                  setIsEdit('')
-                  handleSubmit(onSubmit)()
-                },
-              }}
-              autofocus={true}
-              label="asdasd"
-            />
-          ) : (
-            <p
-              id="username"
-              onDoubleClick={(e) => {
-                showHiddeFields(e)
-              }}
-              className={c.value}
-            >
-              {userInfo.username}
-            </p>
-          )}
-        </div>
-        <div>
-          <p className={c.label}>Email</p>
-          {isEdit === 'email' ? (
-            <InputRHF
-              name={'email'}
-              register={register}
-              errors={errors}
-              options={{
-                required: '',
-                value: userInfo.email,
-                onBlur: () => {
-                  setIsEdit('')
-                  handleSubmit(onSubmit)()
-                },
-              }}
-              autofocus={true}
-            />
-          ) : (
-            <p
-              id="email"
-              onDoubleClick={(e) => {
-                showHiddeFields(e)
-              }}
-              onTouchStart={(e) => {
-                showHiddeFields(e)
-              }}
-              className={c.value}
-            >
-              {userInfo.email}
-            </p>
-          )}
-        </div>
-      </form>
+      <div className={c.title}>Смена данных</div>
+      <ChangeMailnInfo
+        username={username}
+        email={email}
+        status={userInfo.status}
+      />
+      <div className={c.title}> Смена пароля</div>
+      <ChangePassword  />
     </div>
   )
 })

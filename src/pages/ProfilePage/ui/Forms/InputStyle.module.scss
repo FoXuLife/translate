@@ -1,0 +1,84 @@
+.editForm {
+    @apply grid justify-center justify-items-center gap-5;
+
+    .itemsForm {
+        @apply grid grid-cols-1 sm:grid-cols-2 justify-center gap-5 text-center justify-items-center;
+
+        .confirmPassword {
+            @apply self-center sm:col-start-1 sm:col-end-3;
+        }
+
+        .formItem {
+            @apply w-full flex items-center;
+
+            .label {
+                @apply text-lg font-semibold;
+            }
+
+            >div {
+                @apply max-w-[250px]
+            }
+
+            input {
+                @apply px-5 py-2 border border-solid border-gray-300 max-w-[250px] rounded-lg bg-gray-50 text-base text-center focus:bg-white;
+            }
+        }
+    }
+
+    .error {
+        @apply text-red-400;
+    }
+
+
+    .loadingicon {
+        @apply rounded-full w-4 h-4 border-2 border-solid border-gray-200 border-t-black animate-spin;
+    }
+
+    .checkmark {
+        display: inline-block;
+        transform: rotate(45deg);
+        height: 16px;
+        width: 6px;
+        border-bottom: 2px solid #78b13f;
+        border-right: 2px solid #78b13f;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 6px;
+            width: 0px;
+            height: 0px;
+            background-color: white;
+            animation: apper 1s linear infinite;
+        }
+
+        @keyframes apper {
+            0% {
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 20px;
+            }
+
+            50% {
+                top: -2px;
+                left: 5px;
+
+            }
+
+            100% {
+                top: -20px;
+                left: 6px;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    .impetus {
+        -webkit-animation-timing-function: cubic-bezier(0.5, -0.35, 0.5, 1.35);
+        animation-timing-function: cubic-bezier(0.5, -0.35, 0.5, 1.35);
+    }
+
+}

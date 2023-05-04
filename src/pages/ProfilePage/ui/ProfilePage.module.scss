@@ -1,8 +1,8 @@
 .profile {
-    @apply mainBlock;
+    @apply mainBlock ;
 
     .information {
-        @apply flex items-center gap-5 justify-center;
+        @apply grid sm:flex items-center gap-5 sm:justify-center justify-items-center sm:text-start text-center;
 
         .email {
             @apply text-sm text-gray-400;
@@ -13,24 +13,8 @@
         }
     }
 
-    .editForm {
-        @apply grid grid-cols-2 justify-center gap-5 text-center justify-items-center;
-
-        >div {
-            @apply w-full grid justify-items-center;
-            .label {
-                @apply text-lg font-semibold;
-            }
-            div{
-                @apply w-full max-w-[250px]
-                
-            }
-            .value, input{
-                @apply px-5 py-2 border border-solid border-black max-w-[250px] rounded-lg bg-white text-base text-center;
-            }
-            .value{
-                @apply w-full
-            }
-        }
+   
+    .title{
+        @apply font-medium text-center text-2xl mt-5 ;
     }
 }

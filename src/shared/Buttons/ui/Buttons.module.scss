@@ -1,18 +1,30 @@
 .buttons {
-    @apply border-none bg-transparent text-base  text-mainColor rounded-2xl py-3 px-10 cursor-pointer font-mainFont w-max h-max ;
+    @apply border-none bg-transparent text-base text-mainColor rounded-2xl py-3 px-10 cursor-pointer font-mainFont w-max h-max;
 }
 
 .withBorder {
     @apply border border-mainColor border-solid;
 }
 
-.withBackground { 
-    @apply bg-mainColor text-white ;
+.withBackground {
+    @apply bg-mainColor text-white;
 }
-.withBorderWhite{
+
+.withBorderWhite {
     @apply border-2 border-white border-solid text-white;
 }
 
-.disable{
- @apply opacity-40;
+.disable {
+    @apply opacity-40;
+}
+
+.withBlackBorder {
+    @apply relative bg-transparent text-black border-black border border-solid font-extralight overflow-hidden transition-colors duration-300;
+
+    &:hover {
+        @apply bg-black text-white;
+    }
+    &:active {
+        @apply bg-slate-600 text-white;
+    }
 }

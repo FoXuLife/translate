@@ -11,13 +11,11 @@ import DynamicInputs, {
 import { Buttons } from 'shared/Buttons/ui/Buttons'
 import CostCalculation from '../lib/CostCalculated'
 
-import { useAuthorization } from 'app/model/hook/useAuth'
-import { setNewTranslate } from 'pages/StoryTranslate/model/redux/StoryTranslateSlice'
 
 export const TranslatePage: React.FC = React.memo(() => {
   // useAuthorization('/preview') // Проверка на авторизацию
-  const distapch = useAppDispatch()
-  const usedValue = useAppSelector((store) => store?.homePage) //
+  const dispatch = useAppDispatch()
+  const dataUsed = useAppSelector((store) => store?.homePage) //
 
   const [textareaValue, setTextareaValue] = useState<string | null>(null) // Значение из текстового поля
   const onchangeTextareaValue = (changeTextEvent: ChangeEvent<HTMLTextAreaElement>) => setTextareaValue(changeTextEvent.target.value) // onChange для текстового поля
@@ -83,9 +81,9 @@ export const TranslatePage: React.FC = React.memo(() => {
         <div className={c.submitBlock}>
           <div className={c.dialectList}>
             <DynamicInputs
-              languages={usedValue.languages}
-              styleTranslate={usedValue.styleTranslate}
-              promptness={usedValue.promptness}
+              languages={dataUsed.languages}
+              styleTranslate={dataUsed.styleTranslate}
+              promptness={dataUsed.promptness}
               setDynamicValue={onChangeDynamicValue}
             />
           </div>
@@ -101,7 +99,7 @@ export const TranslatePage: React.FC = React.memo(() => {
 
           <div className={c.submit}>
             <Buttons
-              type={'withBackground'}
+              type={'withBlackBorder'}
               onClickHandle={Click}
               disabled={
                 dynamicValue && (textareaValue || countWordInText)

@@ -2,71 +2,33 @@
     @apply h-full bg-mainColor p-10 box-border grid items-center gap-10;
 
     h1 {
-        @apply hidden text-center text-white;
+        @apply inline lg:hidden text-center text-white;
 
     }
 
     .dialectsItems {
-        @apply grid grid-rows-4 gap-7 content-center justify-center grid-cols-[auto,auto];
+        @apply grid grid-rows-4 gap-7 content-center lg:justify-center justify-evenly grid-cols-[auto,auto];
 
         .item {
-            @apply bg-itemsColor w-full h-full rounded-3xl px-9 py-5 box-border shadow-itemsShadow max-w-[330px];
+            @apply bg-itemsColor w-full h-full rounded-3xl p-5 sm:px-9 sm:py-5 box-border shadow-itemsShadow max-w-[330px];
 
             .firstLine {
                 @apply flex justify-between;
 
                 .title {
-                    @apply mr-4 text-[1.5vw];
+                    @apply mr-4 text-lg sm:text-[3vw] lg:text-[1.5vw];
                 }
 
                 img {
-                    @apply w-[3vw]
+                    @apply w-[4vw] lg:w-[3vw];
                 }
             }
 
             .example {
-                @apply mt-4 max-w-[250px] text-[1vw];
+                @apply mt-4 max-w-[250px] text-[2vw] lg:text-[1vw] hidden sm:block;
 
             }
         }
-    }
-
-}
-
-@media (max-width:1000px) {
-    h1 {
-        @apply block #{!important};
-    }
-
-    .dialectsItems {
-        @apply justify-evenly #{!important};
-    }
-
-    .title {
-        @apply text-[3vw] #{!important};
-    }
-
-    img {
-        @apply w-[4vw] #{!important};
-    }
-
-    .example {
-        @apply text-[2vw] #{!important};
-    }
-}
-
-@media (max-width:640px) {
-    .item {
-        @apply p-5 text-center align-middle #{!important};
-
-        .title {
-            @apply text-lg #{!important};
-        }
-
-        .example {
-            @apply hidden;
-        }
-
     }
 
 }
